@@ -1,0 +1,21 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# terraform lockfile
+.terraform.lock.hcl
+
+# tfvars file
+*.tfvars
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# IDE extensions
+*.iml
+.idea
+.vscode
