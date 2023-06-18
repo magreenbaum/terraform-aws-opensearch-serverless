@@ -11,7 +11,9 @@ No providers.
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_search_collection"></a> [search\_collection](#module\_search\_collection) | ../../ | n/a |
 
 ## Resources
 
