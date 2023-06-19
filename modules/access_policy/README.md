@@ -30,9 +30,9 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_create"></a> [create](#input\_create) | n/a | `bool` | `true` | no |
 | <a name="input_description"></a> [description](#input\_description) | n/a | `string` | `null` | no |
-| <a name="input_name"></a> [name](#input\_name) | n/a | `string` | `""` | no |
-| <a name="input_policy"></a> [policy](#input\_policy) | n/a | `string` | `null` | no |
-| <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | n/a | `string` | n/a | yes |
+| <a name="input_policy"></a> [policy](#input\_policy) | n/a | `string` | n/a | yes |
+| <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `"data"` | no |
 
 ## Outputs
 

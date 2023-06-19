@@ -31,7 +31,7 @@ No modules.
 | <a name="input_create"></a> [create](#input\_create) | n/a | `bool` | `true` | no |
 | <a name="input_description"></a> [description](#input\_description) | n/a | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | n/a | `string` | `""` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | `{}` | no |
+| <a name="input_saml_options"></a> [saml\_options](#input\_saml\_options) | n/a | `map(any)` | `{}` | no |
 | <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `null` | no |
 
 ## Outputs

@@ -7,7 +7,6 @@ variable "create" {
 variable "name" {
   type        = string
   description = ""
-  default     = ""
 }
 
 variable "description" {
@@ -19,11 +18,10 @@ variable "description" {
 variable "policy" {
   type        = string
   description = ""
-  default     = null
 }
 
 variable "type" {
   type        = string
   description = ""
-  default     = null
+  default     = "data"
 }
