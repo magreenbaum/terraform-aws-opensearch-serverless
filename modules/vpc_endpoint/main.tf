@@ -1,5 +1,5 @@
 resource "aws_opensearchserverless_vpc_endpoint" "this" {
-  count = var.create
+  count = var.create ? 1 : 0
 
   name               = var.name
   security_group_ids = var.security_group_ids

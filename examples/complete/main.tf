@@ -14,8 +14,6 @@ module "search_collection" {
 
   collection = {
     search = {
-      create = true
-
       # name must be between 3 and 32 characters
       name        = "${local.name}-search"
       description = "Search serverless collection example"
@@ -23,8 +21,6 @@ module "search_collection" {
     }
 
     timeseries = {
-      create = true
-
       name        = "${local.name}-timeseries"
       description = "Timeseries serverless collection example"
       type        = "TIMESERIES"
@@ -59,12 +55,15 @@ module "search_collection" {
 
   security_config = {
     saml = {
-      create = true
-      name   = "${local.name}-security-config"
+      name = "${local.name}-security-config"
       saml_options = {
         metadata        = file("${path.module}/saml_metadata/metadata.xml")
         session_timeout = 720
       }
     }
   }
+
+
 }
+
+# Supporting Resources

@@ -28,11 +28,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_create"></a> [create](#input\_create) | n/a | `bool` | `true` | no |
-| <a name="input_description"></a> [description](#input\_description) | n/a | `string` | `null` | no |
-| <a name="input_name"></a> [name](#input\_name) | n/a | `string` | `""` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | `{}` | no |
-| <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `null` | no |
+| <a name="input_create"></a> [create](#input\_create) | Whether to create the collection. | `bool` | `true` | no |
+| <a name="input_description"></a> [description](#input\_description) | Description of the collection. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the collection. | `string` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to the collection. | `map(string)` | `{}` | no |
+| <a name="input_type"></a> [type](#input\_type) | Type of collection. Options are `SEARCH` or `TIMESERIES`. | `string` | `null` | no |
 
 ## Outputs
 

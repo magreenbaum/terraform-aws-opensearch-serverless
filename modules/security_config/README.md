@@ -28,11 +28,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_create"></a> [create](#input\_create) | n/a | `bool` | `true` | no |
-| <a name="input_description"></a> [description](#input\_description) | n/a | `string` | `null` | no |
-| <a name="input_name"></a> [name](#input\_name) | n/a | `string` | `""` | no |
-| <a name="input_saml_options"></a> [saml\_options](#input\_saml\_options) | n/a | `map(any)` | `{}` | no |
-| <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `null` | no |
+| <a name="input_create"></a> [create](#input\_create) | Whether to create security configuration. | `bool` | `true` | no |
+| <a name="input_description"></a> [description](#input\_description) | Description of the security configuration. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the security configuration. | `string` | n/a | yes |
+| <a name="input_saml_options"></a> [saml\_options](#input\_saml\_options) | Configuration block for SAML options. | `map(any)` | `{}` | no |
+| <a name="input_type"></a> [type](#input\_type) | Type of security configuration. | `string` | `"saml"` | no |
 
 ## Outputs
 

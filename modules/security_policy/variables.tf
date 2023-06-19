@@ -1,29 +1,26 @@
 variable "create" {
   type        = bool
-  description = ""
+  description = "Whether to create the security policy."
   default     = true
 }
 
 variable "name" {
   type        = string
-  description = ""
-  default     = ""
+  description = "Name of the security policy."
 }
 
 variable "description" {
   type        = string
-  description = ""
+  description = "Description of the policy permissions defined."
   default     = null
 }
 
 variable "policy" {
   type        = string
-  description = ""
-  default     = null
+  description = "JSON policy document to use as the content of the policy."
 }
 
 variable "type" {
   type        = string
-  description = ""
-  default     = null
+  description = "Type of security policy. Options are `encryption` or `network`."
 }
