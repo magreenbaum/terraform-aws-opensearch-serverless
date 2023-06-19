@@ -53,32 +53,40 @@ module "search_collection" {
     }
   }
 
-  security_config = {
-    saml = {
-      name = "${local.name}-security-config"
-      saml_options = {
-        metadata        = file("${path.module}/saml_metadata/metadata.xml")
-        session_timeout = 720
-      }
-    }
-  }
-
   security_policy = {
     encryption = {
       # name must be between 3 and 32 characters
-      name = "${local.name}-security-policy"
+      name = "${local.name}-encryption"
       type = "encryption"
       policy = jsonencode([
         {
           Rules = [
             {
               Resource = [
-                "collection/example"
+                "collection/${local.name}-search"
               ],
               ResourceType = "collection"
             }
           ],
           AWSOwnedKey = "true"
+        }
+      ])
+    }
+
+    network = {
+      name = "${local.name}-network"
+      type = "network"
+      policy = jsonencode([
+        {
+          Rules = [
+            {
+              Resource = [
+                "collection/${local.name}-search"
+              ],
+              ResourceType = "collection"
+            }
+          ]
+          AllowFromPublic = "true"
         }
       ])
     }
