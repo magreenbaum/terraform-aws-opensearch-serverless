@@ -41,10 +41,24 @@ module "search_collection" {
               ],
               Permission : [
                 "aoss:CreateIndex",
-                "aoss:ReadDocument",
-                "aoss:UpdateDocument",
                 "aoss:DeleteIndex",
+                "aoss:UpdateIndex",
+                "aoss:DescribeIndex",
+                "aoss:ReadDocument",
                 "aoss:WriteDocument"
+              ]
+            },
+            {
+              ResourceType : "collection",
+              Resource : [
+                "collection/${local.name}-search",
+                "collection/${local.name}-timeseries"
+              ],
+              Permission : [
+                "aoss:CreateCollectionItems",
+                "aoss:DeleteCollectionItems",
+                "aoss:UpdateCollectionItems",
+                "aoss:DescribeCollectionItems"
               ]
             }
           ]
