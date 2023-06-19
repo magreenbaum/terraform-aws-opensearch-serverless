@@ -9,6 +9,8 @@ module "collection" {
   description = try(each.value.description, true)
   tags        = merge(var.tags, try(each.value.tags, {}))
   type        = try(each.value.type, true)
+
+  depends_on = [module.security_policy]
 }
 
 module "access_policy" {

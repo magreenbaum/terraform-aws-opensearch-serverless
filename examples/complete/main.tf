@@ -36,12 +36,15 @@ module "search_collection" {
             {
               ResourceType : "index",
               Resource : [
-                "index/books/*"
+                "index/${local.name}-search/*",
+                "index/${local.name}-timeseries/*"
               ],
               Permission : [
                 "aoss:CreateIndex",
                 "aoss:ReadDocument",
-                "aoss:UpdateDocument"
+                "aoss:UpdateDocument",
+                "aoss:DeleteIndex",
+                "aoss:WriteDocument"
               ]
             }
           ]
@@ -58,19 +61,20 @@ module "search_collection" {
       # name must be between 3 and 32 characters
       name = "${local.name}-encryption"
       type = "encryption"
-      policy = jsonencode([
+      policy = jsonencode(
         {
           Rules = [
             {
               Resource = [
-                "collection/${local.name}-search"
+                "collection/${local.name}-search",
+                "collection/${local.name}-timeseries"
               ],
               ResourceType = "collection"
             }
           ],
-          AWSOwnedKey = "true"
+          AWSOwnedKey = true
         }
-      ])
+      )
     }
 
     network = {
@@ -81,12 +85,13 @@ module "search_collection" {
           Rules = [
             {
               Resource = [
-                "collection/${local.name}-search"
+                "collection/${local.name}-search",
+                "collection/${local.name}-timeseries"
               ],
               ResourceType = "collection"
             }
           ]
-          AllowFromPublic = "true"
+          AllowFromPublic = true
         }
       ])
     }
