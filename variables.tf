@@ -43,6 +43,19 @@ variable "security_config" {
   default     = {}
 }
 
+# Security Policy
+variable "create_security_policy" {
+  type        = bool
+  description = "Whether to create the security policy."
+  default     = true
+}
+
+variable "security_policy" {
+  type        = map(any)
+  description = "A map of security policies and their associated configurations."
+  default     = {}
+}
+
 # VPC Endpoint
 variable "create_vpc_endpoint" {
   type        = bool
