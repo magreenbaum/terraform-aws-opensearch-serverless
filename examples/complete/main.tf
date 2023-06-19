@@ -63,7 +63,24 @@ module "search_collection" {
     }
   }
 
-
+  security_policy = {
+    encryption = {
+      # name must be between 3 and 32 characters
+      name = "${local.name}-security-policy"
+      type = "encryption"
+      policy = jsonencode([
+        {
+          Rules = [
+            {
+              Resource = [
+                "collection/example"
+              ],
+              ResourceType = "collection"
+            }
+          ],
+          AWSOwnedKey = "true"
+        }
+      ])
+    }
+  }
 }
-
-# Supporting Resources
