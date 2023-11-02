@@ -70,6 +70,26 @@ module "search_collection" {
     }
   }
 
+  lifecycle_policy = {
+    one_year = {
+      name = "${local.name}-one-year"
+      policy = jsonencode(
+        {
+          Rules : [
+            {
+              ResourceType : "index",
+              Resource : [
+                "index/${local.name}-search/*",
+                "index/${local.name}-timeseries/*"
+              ],
+              MinIndexRetention : "365d"
+            }
+          ]
+        }
+      )
+    }
+  }
+
   security_policy = {
     encryption = {
       # name must be between 3 and 32 characters
