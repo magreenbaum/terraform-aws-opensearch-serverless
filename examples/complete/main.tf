@@ -1,5 +1,6 @@
 provider "aws" {
-  region = local.region
+  region                   = local.region
+  shared_credentials_files = ["~/.aws/credentials"]
 }
 
 locals {
@@ -80,9 +81,24 @@ module "search_collection" {
               ResourceType : "index",
               Resource : [
                 "index/${local.name}-search/*",
-                "index/${local.name}-timeseries/*"
               ],
               MinIndexRetention : "365d"
+            }
+          ]
+        }
+      )
+    }
+    no_min = {
+      name = "${local.name}-no-min"
+      policy = jsonencode(
+        {
+          Rules : [
+            {
+              ResourceType : "index",
+              Resource : [
+                "index/${local.name}-timeseries/*"
+              ],
+              NoMinIndexRetention : true
             }
           ]
         }
@@ -129,5 +145,10 @@ module "search_collection" {
         }
       ])
     }
+  }
+
+  tags = {
+    env  = "prod"
+    name = local.name
   }
 }
