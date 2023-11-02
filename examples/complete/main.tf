@@ -70,6 +70,41 @@ module "search_collection" {
     }
   }
 
+  lifecycle_policy = {
+    one_year = {
+      name = "${local.name}-one-year"
+      policy = jsonencode(
+        {
+          Rules : [
+            {
+              ResourceType : "index",
+              Resource : [
+                "index/${local.name}-search/*",
+              ],
+              MinIndexRetention : "365d"
+            }
+          ]
+        }
+      )
+    }
+    no_min = {
+      name = "${local.name}-no-min"
+      policy = jsonencode(
+        {
+          Rules : [
+            {
+              ResourceType : "index",
+              Resource : [
+                "index/${local.name}-timeseries/*"
+              ],
+              NoMinIndexRetention : true
+            }
+          ]
+        }
+      )
+    }
+  }
+
   security_policy = {
     encryption = {
       # name must be between 3 and 32 characters
@@ -109,5 +144,10 @@ module "search_collection" {
         }
       ])
     }
+  }
+
+  tags = {
+    env  = "prod"
+    name = local.name
   }
 }

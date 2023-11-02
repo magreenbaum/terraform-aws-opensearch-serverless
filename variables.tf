@@ -30,6 +30,19 @@ variable "access_policy" {
   default     = {}
 }
 
+# Lifecycle Policy
+variable "create_lifecycle_policy" {
+  type        = bool
+  description = "Whether to create the lifecycle policy."
+  default     = true
+}
+
+variable "lifecycle_policy" {
+  type        = map(any)
+  description = "A map of lifecycle policies and their associated configurations."
+  default     = {}
+}
+
 # Security Config
 variable "create_security_config" {
   type        = bool

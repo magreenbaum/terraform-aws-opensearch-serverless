@@ -26,6 +26,19 @@ module "access_policy" {
   type        = try(each.value.type, "data")
 }
 
+module "lifecycle_policy" {
+  source = "./modules/lifecycle_policy"
+
+  for_each = { for k, v in var.lifecycle_policy : k => v if var.create_lifecycle_policy }
+
+  create = try(each.value.create, true)
+
+  name        = each.value.name
+  description = try(each.value.description, null)
+  policy      = each.value.policy
+  type        = try(each.value.type, "retention")
+}
+
 module "security_config" {
   source = "./modules/security_config"
 
