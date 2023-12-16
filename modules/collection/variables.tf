@@ -15,6 +15,12 @@ variable "description" {
   default     = null
 }
 
+variable "standby_replicas" {
+  type        = string
+  description = "Indicates whether standby replicas should be used for a collection. One of ENABLED or DISABLED."
+  default     = null
+}
+
 variable "tags" {
   type        = map(string)
   description = "A map of tags to assign to the collection."

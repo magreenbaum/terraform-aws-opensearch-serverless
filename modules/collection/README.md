@@ -6,13 +6,13 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.21 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.31 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.21 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.31 |
 
 ## Modules
 
@@ -31,6 +31,7 @@ No modules.
 | <a name="input_create"></a> [create](#input\_create) | Whether to create the collection. | `bool` | `true` | no |
 | <a name="input_description"></a> [description](#input\_description) | Description of the collection. | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the collection. | `string` | n/a | yes |
+| <a name="input_standby_replicas"></a> [standby\_replicas](#input\_standby\_replicas) | Indicates whether standby replicas should be used for a collection. One of ENABLED or DISABLED. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to the collection. | `map(string)` | `{}` | no |
 | <a name="input_type"></a> [type](#input\_type) | Type of collection. Options are `SEARCH` or `TIMESERIES`. | `string` | `null` | no |
 

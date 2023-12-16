@@ -15,9 +15,10 @@ module "search_collection" {
   collection = {
     search = {
       # name must be between 3 and 32 characters
-      name        = "${local.name}-search"
-      description = "Search serverless collection example"
-      type        = "SEARCH"
+      name             = "${local.name}-search"
+      description      = "Search serverless collection example"
+      type             = "SEARCH"
+      standby_replicas = "ENABLED"
     }
 
     timeseries = {

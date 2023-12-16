@@ -5,10 +5,11 @@ module "collection" {
 
   create = try(each.value.create, true)
 
-  name        = each.value.name
-  description = try(each.value.description, true)
-  tags        = merge(var.tags, try(each.value.tags, {}))
-  type        = try(each.value.type, true)
+  name             = each.value.name
+  description      = try(each.value.description, true)
+  standby_replicas = try(each.value.standby_replicas, null)
+  tags             = merge(var.tags, try(each.value.tags, {}))
+  type             = try(each.value.type, true)
 
   depends_on = [module.security_policy]
 }
